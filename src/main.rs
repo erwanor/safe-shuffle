@@ -1,3 +1,4 @@
+use num_format::{Grouping, Locale};
 use rand_core::{OsRng, RngCore};
 
 fn sequence(n: u32) -> Vec<u32> {
@@ -16,12 +17,20 @@ fn get_u32(upper: u32) -> u32 {
 
     loop {
         rng.fill_bytes(&mut buffer);
-        let mask = (1 << (min_byte_length * 8)) - 1;
+        let byte_mask = (1 << (min_byte_length * 8)) - 1;
+        let bit_mask = byte_mask >> (8 - (bit_length & 7));
 
-        num = u32::from_le_bytes(buffer);
+        let unmasked = u32::from_be_bytes(buffer);
 
         // sampled mod 2^L
-        num = num & mask;
+        num = unmasked & bit_mask;
+
+        println!("upper: {upper:#034b}");
+        println!("mask:  {byte_mask:#034b}");
+        println!("tent:  {bit_mask:#034b}");
+        println!("samp:  {unmasked:#034b}");
+        println!("fina:  {num:#034b}");
+        println!("");
 
         if num < upper {
             break;
