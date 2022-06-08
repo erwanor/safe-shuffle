@@ -1,7 +1,13 @@
 [package]
-name = "crypto-shuffle"
-version = "0.1.0"
+name = "safe-shuffle"
+version = "0.1.1"
 edition = "2021"
+authors = "erwanor"
+description = "Perform unbiased shuffles using a CSPRNG and Fisher-Yates"
+keywords = ["shuffle", "permutation", "fisher-yates", "unbiased"]
+categories = ["algorithms", "cryptography"]
+readme = "README.md"
+license = "LICENSE"
 
 [[bin]]
 name = "main"
