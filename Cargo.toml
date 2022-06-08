@@ -7,7 +7,7 @@ description = "Perform unbiased shuffles using a CSPRNG and Fisher-Yates"
 keywords = ["shuffle", "permutation", "fisher-yates", "unbiased"]
 categories = ["algorithms", "cryptography"]
 readme = "README.md"
-license = "LICENSE"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
